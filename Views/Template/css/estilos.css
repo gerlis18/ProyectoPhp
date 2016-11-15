@@ -14,11 +14,11 @@
 
 .caja {
     padding: 20px;
-    background: #ffffff;
+    background: blue;
     box-shadow: 0px 0px 6px 1px rgba(2, 2, 2, 0.12);
 }
 
 body {
     padding: 100px 20px;
-    background: rgba(123, 123, 123, 0.8);
+    background: red;
 }
