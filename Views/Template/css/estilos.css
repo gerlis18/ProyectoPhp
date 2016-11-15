@@ -1,0 +1,24 @@
+.col-center {
+    float: none!important;
+    margin: 0 auto;
+}
+
+.container {
+    margin-top: 0%;
+}
+
+.center {
+    margin-right: auto;
+    margin-left: auto
+}
+
+.caja {
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0px 0px 6px 1px rgba(2, 2, 2, 0.12);
+}
+
+body {
+    padding: 100px 20px;
+    background: rgba(123, 123, 123, 0.8);
+}
