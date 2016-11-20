@@ -21,10 +21,28 @@
                 $this->datos['pass'],
                 $this->datos['db']
             );
+
+            /*if (!$this->con) {
+                # code...
+            }else {
+                echo "Conexion realizada correctamente";
+            }*/
         }
 
         public function consulta($sql){
-            $this->con->query($sql);
+            try{
+            $valida = $this->con->query($sql);
+            if ($valida) {
+                # code...
+                echo "Consulta exitosa";
+                return $valida;
+            }else {
+                echo "Consulta erronea ;)";
+                echo mysqli_error($this->con);
+            }
+        }catch(Exception $else){
+            echo "<h3>Exception en: </h3>" . $else->getMessage();
+        }
         }
 
         public function consultaRetorno($sql){
