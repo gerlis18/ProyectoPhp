@@ -23,7 +23,7 @@
             $this->apellidos = $apellido;
             $this->telefono = $telefono;
             $this->contraseña = $contraseña;
-            print "{$this->nombre}";
+            $this->email = $email;
         }
 
         public function get($atributo){

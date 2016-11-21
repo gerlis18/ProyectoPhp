@@ -35,7 +35,7 @@
             $ruta = "Views" . DS . $request->getControlador() . DS . $request->getMetodo() . ".php";
             if (is_readable($ruta)) {
                 # code...
-                print $ruta;
+                //print $ruta;
                 require_once $ruta;
             }else {
                 print "no se encontro la ruta";

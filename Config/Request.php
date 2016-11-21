@@ -30,8 +30,8 @@
                     $this->metodo = "index";
                 }
                 $this->argumento = $ruta;
-                print $this->metodo;
-                print_r($ruta);
+                //print $this->metodo;
+                //print_r($ruta);
             } else {
                 $this->controlador = "User";
                 $this->metodo = "index";

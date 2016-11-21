@@ -36,18 +36,23 @@
                 # code...
                 echo "Consulta exitosa";
                 return $valida;
-            }else {
-                echo "Consulta erronea ;)";
-                echo mysqli_error($this->con);
+                }else {
+                    echo "Consulta erronea ;)";
+                    //echo mysqli_error($this->con);
+                }
+            }catch(Exception $else){
+                echo "<h3>Exception en: </h3>" . $else->getMessage();
             }
-        }catch(Exception $else){
-            echo "<h3>Exception en: </h3>" . $else->getMessage();
-        }
         }
 
         public function consultaRetorno($sql){
+            try{
             $datos = $this->con->query($sql);
+            echo mysqli_error($this->con);
             return $datos;
+        }catch(Exception $e){
+            print "Error en la consulta: " . $e->getMessage();
+        }
         }
     }
 

@@ -1,3 +1,9 @@
+<head>
+    <meta charset="utf-8">
+    <title>Proyecto</title>
+    <link rel="stylesheet" href="<?php echo URL; ?>Views/Template/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo URL; ?>Views/Template/css/estile.css">
+</head>
 
     <div class="container-fluid">
         <div class="row">
@@ -6,16 +12,16 @@
             </div>
         </div>
         </div>
-
+        
         <div class="container">
         <div class="row">
             <div class="col-sm-4 col-md-4 col-xs-8 caja col-center">
-                <form action="index.html" method="post">
+                <form action="<?php echo URL; ?>User/acceder" method="post">
                     <legend>Inicia Sesion</legend>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input type="text" class="form-control" id="" placeholder="Usuario">
+                            <input type="text" class="form-control" id="" placeholder="Usuario" name="user">
                         </div>
                     </div>
 
@@ -23,7 +29,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                             <input type="password" class="form-control" id="" placeholder="Contraseña">
+                             <input type="password" class="form-control" id="" placeholder="Contraseña" name="pass">
                         </div>
 
                     </div>
