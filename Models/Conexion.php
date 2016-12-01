@@ -7,8 +7,8 @@
         private $datos = array(
             "host" => "localhost",
             "user" => "root",
-            "pass" => "300ger1771lis",
-            "db" => "dbproyecto"
+            "pass" => "123456",
+            "db" => "dbproyecto1"
         );
 
         private $con;
@@ -34,11 +34,12 @@
             $valida = $this->con->query($sql);
             if ($valida) {
                 # code...
-                echo "Consulta exitosa";
+                //echo "Consulta exitosa";
+                echo $valida;
                 return $valida;
                 }else {
                     echo "Consulta erronea ;)";
-                    //echo mysqli_error($this->con);
+                    echo mysqli_error($this->con);
                 }
             }catch(Exception $else){
                 echo "<h3>Exception en: </h3>" . $else->getMessage();
@@ -48,7 +49,7 @@
         public function consultaRetorno($sql){
             try{
             $datos = $this->con->query($sql);
-            echo mysqli_error($this->con);
+            //echo mysqli_error($this->con);
             return $datos;
         }catch(Exception $e){
             print "Error en la consulta: " . $e->getMessage();

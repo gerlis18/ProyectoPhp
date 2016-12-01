@@ -13,7 +13,6 @@
         private $telefono;
 
         public function __construct() {
-            # code...
             $this->con = new Conexion();
         }
 
@@ -28,7 +27,7 @@
 
         public function get($atributo){
             $atr = $this->atributo = $atributo;
-            return print "{'$this' . '->' . atributo}";
+            return print "{'$this' . '->' . $atributo}";
         }
 
         public function listarUsuarios(){
@@ -36,6 +35,15 @@
             $datos = $this->con->consultaRetorno($sql);
             return $datos;
         }
+
+        public function buscarUsuarios(){
+            $sql = "call listar_usuarios()";
+            //$this->con->set_charset("utf8");
+            $datos = $this->con->consultaRetorno($sql);
+
+            return $datos;
+        }
+
 
         public function registrarUsuarios(){
             try{

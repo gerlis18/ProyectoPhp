@@ -1,4 +1,4 @@
-<?php $cursos = $cursos->listarCursos();
+<?php $cursos = $proyectos->listarCursos();
         //$aprendices = $proyectos->listarApredices();
 ?>
 <html>
@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <title>Proyecto</title>
     <link rel="stylesheet" href="<?php echo URL; ?>Views/Template/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo URL; ?>Views/Template/css/dashboard.css">
+    <link rel="stylesheet" href="<?php echo URL; ?>Views/Template/css/cursos.css">
 </head>
 <body>
 <nav class="navbar navbar-default navbar-inverse">
@@ -27,15 +29,19 @@
 
     </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="actives"><a href="#">Inicio</a></li>
+        <li class="actives"><a href="<?php echo URL; ?>Dashboard/">Inicio</a></li>
         <li class="dropdown">
-            <?php $url = URL . "Cursos/"; ?>
-            <a href="" class="dropwdon-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" arai-expanded="false" >Mis Cursos
+            <a href="#" class="dropwdon-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" arai-expanded="false" >Notas
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <?php while ($row = mysqli_fetch_array($cursos)) { ?>
-                    <li><a href="<?php //echo $url; ?>#" class="cursoprog"><?php echo  $row['programa_nombre'] . " " .  $row['cursos_cursos_id'] ?></a></li>
-                    <?php } ?>
+                    <li><a href="#">Registrar Notas</a></li>
+                </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropwdon-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" arai-expanded="false" >Proyectos
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Registrar Grupo</a></li>
                 </ul>
         </li>
         <li class="dropdown">
@@ -119,8 +125,58 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
+
+<!-- Vertical menu -->
+<div class="row affix-row">
+    <div class="col-sm-3 col-md-2 affix-sidebar">
+		<div class="sidebar-nav">
+  <div class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <span class="visible-xs navbar-brand">Sidebar menu</span>
+    </div>
+    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+      <ul class="nav navbar-nav" id="sidenav01">
+        <li class="active">
+          <a href="#" data-toggle="collapse" data-target="#toggleDemo0" data-parent="#sidenav01" class="collapsed">
+          <h4>
+          Panel
+          <br>
+          </h4>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed">
+          <span class="glyphicon glyphicon-user"></span> Gestionar Aprendices <span class="caret pull"></span>
+          </a>
+          <div class="collapse" id="toggleDemo" style="height: 0px;">
+            <ul class="nav nav-list">
+              <li><a href="<?php echo URL . "Cursos/aprendices" ?>">Asignar aprendices</a></li>
+              <li><a href="#">Crear Grupos</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+	</div>
+	<div class="col-sm-9 col-md-10 affix-content">
+		<div class="container">
+
+            <h1 class="text-center">Panel de control</h1>
+
+		</div>
+	</div>
+</div>
+
 <script src="<?php echo URL; ?>Views/Template/js/jquery-3.1.1.min.js"></script>
 <script src="<?php echo URL; ?>Views/Template/js/bootstrap.min.js"></script>
-<script src="<?php echo URL; ?>Views/Template/js/asigAprendices.js"></script>
 </body>
 </html>

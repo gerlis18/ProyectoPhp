@@ -1,5 +1,6 @@
 <?php namespace Controllers;
 use Models\DAOISesion as isesion;
+use Controllers\CursosController as cursos;
     /**
      *
      */
@@ -8,6 +9,7 @@ use Models\DAOISesion as isesion;
         private $sesion;
         public function __construct(){
             $this->sesion = new isesion();
+
         }
         public function index(){
             if (isset($_SESSION["usuario"]) && isset($_SESSION["pass"])) {
@@ -23,7 +25,9 @@ use Models\DAOISesion as isesion;
             $url = URL . "User/";
             header("Location: $url");
         }
-    }
 
 
+
+}
+$cursos = new cursos();
 ?>

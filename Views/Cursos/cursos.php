@@ -1,4 +1,4 @@
-<?php $cursos = $cursos->listarCursos();
+<?php $cursos = $proyectos->listarCursos();
         //$aprendices = $proyectos->listarApredices();
 ?>
 <html>
@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <title>Proyecto</title>
     <link rel="stylesheet" href="<?php echo URL; ?>Views/Template/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo URL; ?>Views/Template/css/dashboard.css">
 </head>
 <body>
 <nav class="navbar navbar-default navbar-inverse">
@@ -19,6 +20,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">Brand</a>
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -27,15 +29,19 @@
 
     </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="actives"><a href="#">Inicio</a></li>
+        <li class="actives"><a href="<?php echo URL; ?>Dashboard/">Inicio</a></li>
         <li class="dropdown">
-            <?php $url = URL . "Cursos/"; ?>
-            <a href="" class="dropwdon-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" arai-expanded="false" >Mis Cursos
+            <a href="#" class="dropwdon-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" arai-expanded="false" >Notas
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <?php while ($row = mysqli_fetch_array($cursos)) { ?>
-                    <li><a href="<?php //echo $url; ?>#" class="cursoprog"><?php echo  $row['programa_nombre'] . " " .  $row['cursos_cursos_id'] ?></a></li>
-                    <?php } ?>
+                    <li><a href="#">Registrar Notas</a></li>
+                </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropwdon-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" arai-expanded="false" >Proyectos
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Registrar Grupo</a></li>
                 </ul>
         </li>
         <li class="dropdown">
@@ -119,8 +125,80 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<script src="<?php echo URL; ?>Views/Template/js/jquery-3.1.1.min.js"></script>
+
+<!-- Registrar grupos de proyecto -->
+<h1 class="text-center">Registrar grupos de proyecto</h1>
+<div class="container">
+    <legend>Programas y Cursos</legend>
+    <form class="" action="" method="post" name="programas">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-horizontal">
+                    <label for="">Programa</label>
+                    <select class="form-control" id="programas" name="programas">
+                        <option value="programa_id" selected disabled>SELECCIONE</option>
+
+                        <?php while ($row = mysqli_fetch_array($datos)) {
+                            $nombre = $row['programa_nombre']; ?>
+                        <option value="programa_id"><?php echo  $nombre?></option>
+                        <?php } ?>
+                    </select>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-horizontal">
+                <label for="">Curso</label>
+                <select class="form-control" id="cursos" name="cursos" disabled>
+                    <option value="programa_id" selected disabled>SELECCIONE</option>
+                    <?php while ($row = mysqli_fetch_array($cursos)) { ?>
+                    <option><?php echo $row['cursos_cursos_id'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+        </div>
+        </form>
+    </div><br><br>
+    <legend>Aprendices</legend>
+    <form class="" action="" method="post">
+        <div class="row">
+            <div class="col-md-2">
+                <h4>Aprendiz 1</h4>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" name="">
+                    <option selected disabled>SELECCIONE</option>
+                    <?php while ($row = mysqli_fetch_array($aprendices)) { ?>
+                        <option><?php echo [''] ?></option>
+                        <?php } ?>
+                </select>
+            </div>
+        </div>
+        <br><br>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-horizontal">
+                        <label for="nombre">Identificacion</label>
+                            <input type="text" class="form-control" id="identificacion" name="identificacion" disabled>
+                    </div>
+                </div>
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" disabled>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <label for="nombre">Apellidos</label>
+                        <input type="text" class="form-control" id="apellidos" name="apellidos" disabled>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="<?php echo URL; ?>Views/Template/js/bootstrap.min.js"></script>
-<script src="<?php echo URL; ?>Views/Template/js/asigAprendices.js"></script>
 </body>
 </html>

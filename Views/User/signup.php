@@ -1,9 +1,11 @@
+<html>
 <head>
     <meta charset="utf-8">
     <title>Proyecto</title>
     <link rel="stylesheet" href="<?php echo URL; ?>Views/Template/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo URL; ?>Views/Template/css/estile.css">
 </head>
+<body>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -55,3 +57,8 @@
                 </div>
             </div>
         </div>
+
+        <script src="<?php echo URL; ?>Views/Template/js/jquery-3.1.1.min.js"></script>
+        <script src="<?php echo URL; ?>Views/Template/js/bootstrap.min.js"></script>
+    </body>
+</html>

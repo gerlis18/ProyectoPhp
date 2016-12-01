@@ -1,7 +1,7 @@
 <?php namespace Config;
 
     /**
-     *
+     * Clase enrutadora
      */
     class Enrutador {
 
@@ -25,9 +25,9 @@
                 $controlador = new $mostrar;
                 if (!isset($argumento)) {
                     # code...
-                    call_user_func(array($controlador, $metodo));
+                    $datos = call_user_func(array($controlador, $metodo));
                 }else{
-                    call_user_func_array(array($controlador, $metodo), $argumento);
+                    $datos = call_user_func_array(array($controlador, $metodo), $argumento);
                 }
             }
 
@@ -38,7 +38,7 @@
                 //print $ruta;
                 require_once $ruta;
             }else {
-                print "no se encontro la ruta";
+                //print "no se encontro la vista";
             }
         }
 

@@ -33,11 +33,7 @@ use Models\DAOISesion as iniciarSesion;
                     $url = URL . "Dashboard/";
                     header("Location: $url");
                 } else {
-                    echo "verifique usuario o contraseña";
-                    //$url = ROOT . "Views\User/wrMessages.php";
-                    //print $url;
-                    //header("Location: $url");
-                    //echo "<div class=''alert alert-danger'' role="'alert'">verifique usuario o contraseña</div>";
+                    echo "verifique usuario o contraseña y verifique que tenga asignado un rol en el sistema <br>";
                 }
             }else {
                 echo "<strong>Rellene campos vacios</strong>";
@@ -45,30 +41,27 @@ use Models\DAOISesion as iniciarSesion;
         }
 
         public function signUp(){
-            if (isset($_POST['identificacion']) && !empty($_POST['identificacion']) &&
-                isset($_POST['nombre']) && !empty($_POST['nombre']) &&
-                isset($_POST['apellido']) && !empty($_POST['apellido']) &&
-                isset($_POST['email']) && !empty($_POST['email']) &&
-                isset($_POST['telefono']) && !empty($_POST['telefono']) &&
-                isset($_POST['password']) && !empty($_POST['password'])) {
-                # code...
-                $this->Obj_DAOUsuarios->set($_POST['identificacion'], $_POST['nombre'], $_POST['apellido'], $_POST['email'], $_POST['telefono'], $_POST['password']);
+            if ($_POST) {
+ 
+                if (isset($_POST['identificacion']) && !empty($_POST['identificacion']) &&
+                    isset($_POST['nombre']) && !empty($_POST['nombre']) &&
+                    isset($_POST['apellido']) && !empty($_POST['apellido']) &&
+                    isset($_POST['email']) && !empty($_POST['email']) &&
+                    isset($_POST['telefono']) && !empty($_POST['telefono']) &&
+                    isset($_POST['password']) && !empty($_POST['password'])) {
+                    
+                    $this->Obj_DAOUsuarios->set($_POST['identificacion'], $_POST['nombre'], $_POST['apellido'], $_POST['email'], $_POST['telefono'], $_POST['password']);
 
-                /*print $this->Obj_DAOUsuarios->get("id");
-                print $this->Obj_DAOUsuarios->get("nombre");
-                print $this->Obj_DAOUsuarios->get("apellidos");
-                print $this->Obj_DAOUsuarios->get("telefono");
-                print $this->Obj_DAOUsuarios->get("email");*/
-                $valida = $this->Obj_DAOUsuarios->registrarUsuarios();
-                //var_dump($valida);
-                if (!$valida) {
-                    # code...
-                    echo "ocurrio un error";
-                }else {
-                    echo "<strong>Se ha registrado Correctamente ;)</strong>";
+                    $valida = $this->Obj_DAOUsuarios->registrarUsuarios();
+                    //var_dump($valida);
+                    if (!$valida) {
+                        echo "ocurrio un error";
+                    }else {
+                        echo "<strong>Se ha registrado Correctamente ;)</strong>";
+                    }
+                } else {
+                    print "Rellene campos";
                 }
-            } else {
-                print "Error en la insercion de los datos";
             }
         }
 
